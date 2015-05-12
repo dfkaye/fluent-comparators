@@ -6,10 +6,10 @@
 
 // 12-May-2015:
 // + changed from Object.prototype, to Number, String and Boolean prototypes
+// + moved to repository with tests at https://github.com/dfkaye/fluent-comparators
 
 // TODO 10-May-2015:
-// + real test cases w/ test runner;
-// + add `not` ??
+// + add `not` or `neq` ??
 // + add callback support:
 //
 //      value.eq(other, function capture(result) {
