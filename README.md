@@ -8,10 +8,10 @@ qunit test suite on rawgit:  https://rawgit.com/dfkaye/fluent-comparators/master
 TODO 10-May-2015:
 + add `not` or `neq` 
 + add callback support:
-
-      value.eq(other, function capture(result) {
-          console.log(result);
-          return result; // or return this for chaining rather than if-ing...
-      });
+        
+        value.eq(other, function capture(result) {
+            console.log(result);
+            return result; // or return this for chaining rather than if-ing...
+        });
       
       
