@@ -123,5 +123,46 @@ QUnit.test( "boolean.lte(boolean)", function( assert ) {
 	assert.ok( !(true).lte(false), "!(true).lte(false)!" );
 });
 
+
+QUnit.module('potpourri');
+
+QUnit.test( "null, undefined & empty strings", function( assert ) {
+
+	assert.ok( (-1).lt(null), "(-1).lt(null)!" );
+	assert.ok( (0).lte(null), "(0).lte(null)!" );
+	
+	assert.ok( !('null').eq(null), "!('null').eq(null)!" );
+	assert.ok( !('').eq(null), "!('').eq(null)!" );
+	
+	assert.ok( !(0).eq(undefined), "!(0).eq(undefined)!" );
+	assert.ok( !(false).eq(undefined), "!(false).eq(undefined)!" );
+	assert.ok( !('undefined').eq(undefined), "!('undefined').eq(undefined)!" );
+	assert.ok( !('').eq(undefined), "!('').eq(undefined)!" );
+	assert.ok( ('').eq(''), "('').eq('')!" ); // fixed by this.valueOf() in eq()
+	
+	assert.ok( !('13').eq(13), "!('13').eq(13)!" );
+	assert.ok( ('13').eq((13).toString()), "('13').eq((13).toString())!" );
+});
+
+QUnit.test( "object properties", function( assert ) {
+
+	var test = {
+		number: 1, boolean: true, string: 'string',
+		null: null, undefined: undefined, '' : ''
+	};
+
+	assert.ok( test.number.eq(1), "test.number.eq(1)!" );
+	assert.ok( test.boolean.eq(true), "test.boolean.eq(true)!" );
+	assert.ok( test.string.eq('string'), "test.string.eq('string')!" );
+	assert.ok( test.string.eq(String('string')), "test.string.eq(String('string'))!" );
+	// neq
+	assert.ok( !test.number.eq('1'), "!test.number.eq('1')!" );
+	assert.ok( !test.boolean.eq('true'), "!test.boolean.eq('true')!" );
+	assert.ok( !test.string.eq(new String('string')), "!test.string.eq(new String('string'))!" );
+	assert.ok( test[''].eq(''), "test[''].eq('')!" );
+	
+});
+
+
 </script>
 
