@@ -3,9 +3,10 @@ fluent dsl comparators (eq, gt, lt, gte, lte) for numbers, strings and booleans 
 
 like this:  `path.to.value.eq(someValue) // true or false, depending`
 
-qunit test suite on rawgit:  https://rawgit.com/dfkaye/fluent-comparators/master/test/qunit/browser.html
+## qunit test suite on rawgit
+https://rawgit.com/dfkaye/fluent-comparators/master/test/qunit/browser.html
 
-TODO 10-May-2015:
+## TODO 10-May-2015:
 + add `not` or `neq` 
 + add callback support:
         
@@ -13,5 +14,7 @@ TODO 10-May-2015:
             console.log(result);
             return result; // or return this for chaining rather than if-ing...
         });
-      
++ travis
++ testem
++ npm init test and pub
       
