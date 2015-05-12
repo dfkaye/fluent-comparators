@@ -1,7 +1,9 @@
 # fluent-comparators
 fluent javascript dsl comparators (eq, gt, lt, gte, lte) for numbers, strings and booleans ~ based on idea at https://gist.github.com/dfkaye/ca8d518aaab092df4681
 
-like this:  `path.to.value.eq(someValue) // true or false, depending`
+Like this:  `path.to.value.eq(someValue) // true or false, depending`
+
+Not meant to be an expects-matcher library.
 
 ## qunit test suite on rawgit
 https://rawgit.com/dfkaye/fluent-comparators/master/test/qunit/browser.html
