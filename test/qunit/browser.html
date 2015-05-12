@@ -13,7 +13,9 @@
 <script src='https://code.jquery.com/qunit/qunit-1.18.0.js'></script>
 <script src='../../fluent.js'></script>
 <script xsrc='./tests.js'>
-  
+
+QUnit.module('eq');
+
 QUnit.test( "number.eq(number)", function( assert ) {
   assert.ok( (2).eq(2), "(2).eq(2)!" );
   assert.ok( !(NaN).eq(NaN), "!(NaN).eq(NaN)!" );
@@ -32,12 +34,14 @@ QUnit.test( "boolean.eq(boolean)", function( assert ) {
   assert.ok( !(false).eq(true), "!(false).eq(true)!" );
 });
 
-QUnit.test( "''.eq(null || |undefined)", function( assert ) {
+QUnit.test( "x.eq(null || |undefined)", function( assert ) {
 
   assert.ok( (typeof {}.eq).eq('undefined'), "object.eq!" );
   assert.ok( (typeof null).eq('object'), "(typeof null).eq('object')!" );
   assert.ok( (typeof undefined).eq('undefined'), "(typeof undefined).eq('undefined')!" );
 });
+
+QUnit.module('gt');
 
 QUnit.test( "number.gt(number)", function( assert ) {
 
@@ -57,39 +61,72 @@ QUnit.test( "boolean.gt(boolean)", function( assert ) {
 	assert.ok( (true).gt(false), "(true).gt(false)!" );
 });
 
+QUnit.module('gte');
+
+QUnit.test( "number.gte(number)", function( assert ) {
+
+  assert.ok( (-2).gte(-3), "(-2).gte(-3)!" );
+	assert.ok( !(-3).gte(-2), "!(-3).gte(-2)!" );
+	assert.ok( !(NaN).gte(NaN), "!(NaN).gte(NaN)!")
+});
+
+QUnit.test( "string.gte(string)", function( assert ) {
+
+  assert.ok( ('texta').gte('text'), "('texta').gte('text')!" );
+	assert.ok( ('text').gte('text'), "('text').gte('text')!" );
+});
+
+QUnit.test( "boolean.gte(boolean)", function( assert ) {
+
+  assert.ok( !(false).gte(true), "!(false).gte(true)!" );
+	assert.ok( (true).gte(false), "(true).gte(false)!" );
+});
+
+QUnit.module('lt');
+
+QUnit.test( "number.lt(number)", function( assert ) {
+
+  assert.ok( (2).lt(3), "(2).lt(3)!" );
+	assert.ok( !(3).lt(2), "!(3).lt(2)!" );
+});
+
+QUnit.test( "string.lt(string)", function( assert ) {
+
+  assert.ok( ('text').lt('texty'), "('text').lt('texty')!" );
+	assert.ok( !('text').lt('text'), "!('text').lt('text')!" );
+});
+
+QUnit.test( "boolean.lt(boolean)", function( assert ) {
+
+  assert.ok( (false).lt(true), "(false).lt(true)!" );
+	assert.ok( !(true).lt(false), "!(true).lt(false)!" );
+});
+
+QUnit.module('lte');
+
+QUnit.test( "number.lte(number)", function( assert ) {
+
+  assert.ok( (-1).lte(-0.5), "(-1).lte(-0.5)!" );
+	assert.ok( !(-0.5).lte(-1), "!(-0.5).lte(-1)!" );
+	assert.ok( !(NaN).lte(NaN), "!(NaN).lte(NaN)!")
+});
+
+QUnit.test( "string.lte(string)", function( assert ) {
+
+  assert.ok( ('text').lte('texty'), "('text').lte('texty'))!" );
+	assert.ok( !('text').lte('atext'), "!('text').lte('atext')!" );
+});
+
+QUnit.test( "boolean.lte(boolean)", function( assert ) {
+
+  assert.ok( (false).lte(true), "(false).lte(true)!" );
+	assert.ok( !(true).lte(false)), "!(true).lte(false)!" );
+});
+
+
 
 var asserts = [
 
-  (-2).gte(-3), // true
-  !(-3).gte(-2), // true
-
-  ('texta').gte('text'), // true
-  ('text').gte('text'), // true
-  
-  !(false).gte(true), // true
-  (true).gte(false), // true
-  
-  !(NaN).gte(NaN), // true
-
-  (2).lt(3), // true
-  !(3).lt(2), // true
-  
-  ('text').lt('texty'), // true
-  !('text').lt('text'), // true
-  
-  (false).lt(true), // true
-  !(true).lt(false), // true
-
-  (-1).lte(-0.5), // true
-  !(-0.5).lte(-1), // true
-  
-  ('text').lte('texty'), // true
-  !('text').lte('atext'), // true
-  
-  (false).lte(true), // true
-  !(true).lte(false), // true
-
-  !(NaN).lte(NaN), // true
 
   // null, undefined & empty strings
   
@@ -135,6 +172,5 @@ console.log(props.join('').indexOf(false) == -1);
 try { test.null.eq(null) } catch(error) { console.log(error); }
 try { test.undefined.eq(undefined) } catch(error) { console.log(error); }
 
-
-
+ 
 </script>
