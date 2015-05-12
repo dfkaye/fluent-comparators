@@ -147,8 +147,7 @@ QUnit.test( "null, undefined & empty strings", function( assert ) {
 QUnit.test( "object properties", function( assert ) {
 
 	var test = {
-		number: 1, boolean: true, string: 'string',
-		null: null, undefined: undefined, '' : ''
+		number: 1, boolean: true, string: 'string', '' : ''
 	};
 
 	assert.ok( test.number.eq(1), "test.number.eq(1)!" );
@@ -160,6 +159,13 @@ QUnit.test( "object properties", function( assert ) {
 	assert.ok( !test.boolean.eq('true'), "!test.boolean.eq('true')!" );
 	assert.ok( !test.string.eq(new String('string')), "!test.string.eq(new String('string'))!" );
 	assert.ok( test[''].eq(''), "test[''].eq('')!" );
+});
+
+QUnit.test( "null property access should throw", function( assert ) {
+
+	var test = {
+		null: null, undefined: undefined
+	};
 	
   assert.throws(function () {
       test.null.eq(null)
