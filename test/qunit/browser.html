@@ -161,8 +161,15 @@ QUnit.test( "object properties", function( assert ) {
 	assert.ok( !test.string.eq(new String('string')), "!test.string.eq(new String('string'))!" );
 	assert.ok( test[''].eq(''), "test[''].eq('')!" );
 	
-});
+  assert.throws(function () {
+      test.null.eq(null)
+    }, 'should throw: test.null.eq(null)');
+  
+  assert.throws(function () {
+      test.undefined.eq(undefined)
+    }, 'should throw: test.null.eq(null)');
 
+});
 
 </script>
 
