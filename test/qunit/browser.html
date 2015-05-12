@@ -87,13 +87,13 @@ QUnit.module('lt');
 QUnit.test( "number.lt(number)", function( assert ) {
 
   assert.ok( (2).lt(3), "(2).lt(3)!" );
-	assert.ok( !(3).lt(2), "!(3).lt(2)!" );
+  assert.ok( !(3).lt(2), "!(3).lt(2)!" );
 });
 
 QUnit.test( "string.lt(string)", function( assert ) {
 
   assert.ok( ('text').lt('texty'), "('text').lt('texty')!" );
-	assert.ok( !('text').lt('text'), "!('text').lt('text')!" );
+assert.ok( !('text').lt('text'), "!('text').lt('text')!" );
 });
 
 QUnit.test( "boolean.lt(boolean)", function( assert ) {
@@ -120,57 +120,8 @@ QUnit.test( "string.lte(string)", function( assert ) {
 QUnit.test( "boolean.lte(boolean)", function( assert ) {
 
   assert.ok( (false).lte(true), "(false).lte(true)!" );
-	assert.ok( !(true).lte(false)), "!(true).lte(false)!" );
+	assert.ok( !(true).lte(false), "!(true).lte(false)!" );
 });
-
-
-
-var asserts = [
-
-
-  // null, undefined & empty strings
-  
-  (-1).lt(null), // true
-  (0).lte(null), // true
-  !('null').eq(null), // true
-  !('').eq(null), // true
-  
-  !(0).eq(undefined), // true
-  !(false).eq(undefined), // true
-  !('undefined').eq(undefined), // true
-  !('').eq(undefined), // true
-  
-  ('').eq(''), // true (fixed by this.valueOf() in eq)
-  
-  !('13').eq(13), // true
-  ('13').eq((13).toString()) // true
-];
-
-console.log(asserts.join('').indexOf(false) == -1);
-
-// verify that object properties inherit these methods
-
-var test = {
-  number: 1, boolean: true, string: 'string',
-  null: null, undefined: undefined, '' : ''
-};
-
-var props = [
-  test.number.eq(1), // true
-  test.boolean.eq(true), // true
-  test.string.eq('string'), // true
-  test.string.eq(String('string')), // true
-  
-  !test.number.eq('1'), // true
-  !test.boolean.eq('true'), // true
-  !test.string.eq(new String('string')), // true
-  test[''].eq('') // true
-];
-
-console.log(props.join('').indexOf(false) == -1);
-
-try { test.null.eq(null) } catch(error) { console.log(error); }
-try { test.undefined.eq(undefined) } catch(error) { console.log(error); }
 
  
 </script>
