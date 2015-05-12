@@ -1,5 +1,5 @@
 # fluent-comparators
-fluent dsl comparators (eq, gt, lt, gte, lte) for numbers, strings and booleans ~ based on idea at https://gist.github.com/dfkaye/ca8d518aaab092df4681
+fluent javascript dsl comparators (eq, gt, lt, gte, lte) for numbers, strings and booleans ~ based on idea at https://gist.github.com/dfkaye/ca8d518aaab092df4681
 
 like this:  `path.to.value.eq(someValue) // true or false, depending`
 
