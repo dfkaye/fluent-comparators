@@ -8,8 +8,10 @@
 // + changed from Object.prototype, to Number, String and Boolean prototypes
 // + moved to repository with tests at https://github.com/dfkaye/fluent-comparators
 
+// 13-May-2015:
+// + added `neq`
+
 // TODO 10-May-2015:
-// + add `not` or `neq` ??
 // + add callback support:
 //
 //      value.eq(other, function capture(result) {
@@ -18,13 +20,13 @@
 //      });
 
 (function() {
-  
   var comp = {
         'eq': function eq(n) { return this.valueOf() === n; },
         'gt': function gt(n) { return this > n; },
         'gte': function gte(n) { return this >= n; },
         'lt': function lt(n) { return this < n; },
         'lte': function lte(n) { return this <= n; },
+        'neq': function neq(n) { return !this.eq(n); } 
       },
       b = Boolean.prototype,
       n = Number.prototype,
@@ -37,5 +39,4 @@
     k in n || (n[k] = f);
     k in s || (s[k] = f);
   }
-  
 }());
