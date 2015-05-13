@@ -9,7 +9,6 @@ Not meant to be an expects-matcher library.
 https://rawgit.com/dfkaye/fluent-comparators/master/test/qunit/browser.html
 
 ## TODO 10-May-2015:
-+ add `not` or `neq` 
 + add callback support:
         
         value.eq(other, function capture(result) {
@@ -19,4 +18,3 @@ https://rawgit.com/dfkaye/fluent-comparators/master/test/qunit/browser.html
 + travis
 + testem
 + npm init test and pub
-      
