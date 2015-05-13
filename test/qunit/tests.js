@@ -88,7 +88,7 @@ QUnit.test( "number.lte(number)", function( assert ) {
 });
 
 QUnit.test( "string.lte(string)", function( assert ) {
-	assert.ok( ('text').lte('texty'), "('text').lte('texty'))!" );
+	assert.ok( ('text').lte('texty'), "('text').lte('texty')!" );
 	assert.ok( !('text').lte('atext'), "!('text').lte('atext')!" );
 });
 
@@ -96,6 +96,26 @@ QUnit.test( "boolean.lte(boolean)", function( assert ) {
 	assert.ok( (false).lte(true), "(false).lte(true)!" );
 	assert.ok( !(true).lte(false), "!(true).lte(false)!" );
 });
+
+
+QUnit.module('neq');
+
+QUnit.test( "number.neq(number)", function( assert ) {
+	assert.ok( (-1).neq(1), "(-1).neq(1)!" );
+	//assert.ok( !(-0.5).lte(-1), "!(-0.5).lte(-1)!" );
+	assert.ok( (NaN).neq(NaN), "(NaN).neq(NaN)!");
+});
+
+QUnit.test( "string.neq(string)", function( assert ) {
+	assert.ok( ('text').neq('texty'), "('text').neq('texty')!" );
+	assert.ok( !('text').neq('text'), "!('text').neq('text')!" );
+});
+
+QUnit.test( "boolean.neq(boolean)", function( assert ) {
+	assert.ok( (false).neq(true), "(false).neq(true)!" );
+	assert.ok( !(true).neq(true), "assert.ok( !(true).neq(true)!" );
+});
+
 
 
 QUnit.module('potpourri');
@@ -130,10 +150,11 @@ QUnit.test( "object properties", function( assert ) {
 	assert.ok( test.string.eq(String('string')), "test.string.eq(String('string'))!" );
 	
 	// neq
-	assert.ok( !test.number.eq('1'), "!test.number.eq('1')!" );
-	assert.ok( !test.boolean.eq('true'), "!test.boolean.eq('true')!" );
-	assert.ok( !test.string.eq(new String('string')), "!test.string.eq(new String('string'))!" );
+	assert.ok( test.number.neq('1'), "test.number.neq('1')!" );
+	assert.ok( test.boolean.neq('true'), "test.boolean.neq('true')!" );
+	assert.ok( test.string.neq(new String('string')), "test.string.neq(new String('string'))!" );
 	
+	// empty keyname
 	assert.ok( test[''].eq(''), "test[''].eq('')!" );
 });
 
