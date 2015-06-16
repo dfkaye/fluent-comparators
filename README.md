@@ -13,13 +13,22 @@ Then these return `true`:
 	path.to.value.gte(testValue = path.to.value + 1);
 	path.to.value.lt(testValue = path.to.value + 1);
 	path.to.value.lte(testValue = path.to.value + 1);
+	
+Support for mod operator (%):
 
+	12.mod(4).eq(0);
+	13.mod(4).eq(1);
+	'13'.mod(4).eq(1);
+	13.mod('4').eq(1);
+	'not a number'.mod('not a number').toString().eq('NaN');
 
 ## qunit test suite on rawgit
 https://rawgit.com/dfkaye/fluent-comparators/master/test/qunit/browser.html
 
-## TODO 10-May-2015:
-+ add callback support:
+## TODO:
++ add math operators [16 June 2015] ~ plus(), minus(), times(), divBy()
++ add isNaN() [16 June 2015]
++ add callback support [ 10-May-2015]:
         
         value.eq(other, function capture(result) {
             console.log(result);
