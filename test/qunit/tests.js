@@ -117,6 +117,22 @@ QUnit.test( "boolean.neq(boolean)", function( assert ) {
 });
 
 
+QUnit.module('mod');
+
+QUnit.test( "number.mod(number)", function( assert ) {
+	assert.ok( (12).mod(4).eq(0), "(12).mod(4).eq(0)!" );
+	assert.ok( (13).mod(4).eq(1), "(13).mod(4).eq(1)!" );
+});
+QUnit.test( "boolean.mod(boolean)", function( assert ) {
+	assert.ok( (true).mod(true).eq(0), "(true).mod(true).eq(0)!");
+	assert.ok( (true).mod(false).toString().eq('NaN'), "(true).mod(false).toString().eq('NaN')!");
+});
+QUnit.test( "string.mod(*)", function( assert ) {
+	assert.ok( ('13').mod(4).eq(1), "('13').mod(4).eq(1)!");
+	assert.ok( ('13').mod('4').eq(1), "('13').mod('4').eq(1)!");
+	assert.ok( ('string').mod('string').toString().eq('NaN'), "('string').mod('string').toString().eq('NaN')!");	
+});
+
 
 QUnit.module('potpourri');
 
@@ -171,5 +187,4 @@ QUnit.test( "null property access should throw", function( assert ) {
   assert.throws(function () {
       test.undefined.eq(undefined)
     }, 'should throw: test.null.eq(null)');
-
 });
